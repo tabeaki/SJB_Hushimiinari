@@ -19,8 +19,8 @@ const Seo: VFC<MetaData> = ({
   pageImgWidth,
   pageImgHeight
 }) => {
-  const defaultTitle = 'Astar Sign Witch'
-  const defaultDescription = 'Zodiac Signs x Witches x Echi-Echi = Strongest The project is aimed at a crypto-native IP. It is planned to be a manga and a game in the future. Please buy your constellation witch or your guess. We also plan to airdrop NFT in other chains if you are holding.'
+  const defaultTitle = 'SJB'
+  const defaultDescription = 'SJB'
 
   const title = defaultTitle
   const description = defaultDescription
