@@ -129,9 +129,9 @@ const Home: NextPage = () => {
       <div className="">
       <Header />
       <Seo
-        pageTitle={'Astar Sign Witch'}
-        pageDescription={'Astar Sign Witch'}
-        pageImg={'https://sign-witch.vercel.app/_next/image?url=%2Fmain_grap.png&w=3840&q=75'}
+        pageTitle={'SJB_Hushimiinari'}
+        pageDescription={'SJB_Hushimiinari'}
+        pageImg={'https://sjb-hushimiinari.vercel.app/_next/image?url=%2Fmain_grap.png&w=3840&q=75'}
         pageImgWidth={1920}
         pageImgHeight={1005}
       />
