@@ -42,7 +42,7 @@ const Seo: VFC<MetaData> = ({
       <meta property="og:image" content={imgUrl} />
       <meta property="og:image:width" content={String(imgWidth)} />
       <meta property="og:image:height" content={String(imgHeight)} />
-      <link rel="preconnect" href="https://sign-witch.vercel.app/_next/image?url=%2Fmain_grap.png&amp;w=3840&amp;q=75" />
+      <link rel="preconnect" href="https://sjb-hushimiinari.vercel.app/_next/image?url=%2Fmain_grap.png&w=3840&q=75" />
       <link
         href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&amp;display=swap"
         rel="stylesheet"

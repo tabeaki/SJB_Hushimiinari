@@ -4,7 +4,6 @@ import { ethers } from "ethers"
 import Image from 'next/image'
 import Seo from './components/Seo'
 import Header from './components/Header';
-import Footer from './components/Footer';
 import toast, { Toaster } from 'react-hot-toast'
 
 declare global {
