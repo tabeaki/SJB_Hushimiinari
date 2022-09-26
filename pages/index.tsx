@@ -102,7 +102,7 @@ const Home: NextPage = () => {
     return <>
     <div className="flex flex-wrap buttom justify-center bg-black bg-center bg-cover">
       <div className='px-2 py-16 lg:px-28 lg:py-28'>
-        <iframe className='w-full aspect-video' width="350" height="315" src="https://www.youtube.com/embed/k3niQ5HKWvM" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        <iframe className='w-full aspect-video' width="350" height="315" src="https://www.youtube.com/watch?v=v6WyHGK01QQ" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
       </div>
       <div className="m-28 px-2 py-20 lg:px-20 lg:py-4 border-double border-8 rounded-md bg-black text-center bg-center bg-contain bg-no-repeat">
         <h3 className="text-xs lg:text-4xl text-white font-semibold "></h3>
