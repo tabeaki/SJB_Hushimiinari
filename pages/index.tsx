@@ -17,7 +17,7 @@ const abi = [
   "function mint() public payable ",
   "function is_paused() public view returns (bool)",
 ]
-const contractAddress = "0x735439E0b73001E578243A310Fe870e50Fb06b57"
+const contractAddress = "0xc324C8dA2aCEf319512Ccee42676B9Dc02E763D4"
 const notify = () => toast('Starting to execute a transaction')
 
 const Home: NextPage = () => {
@@ -37,7 +37,7 @@ const Home: NextPage = () => {
       const contract = new ethers.Contract(contractAddress, abi, signer);
 
       try{
-        const mintNumber = (await contract.totalSupply()).toString();
+        const mintNumber = (await contract.totalSupply() - 4);
         const paused = await contract.is_paused();
         setMintNum(mintNumber)
         setpaused(paused)  
@@ -52,14 +52,14 @@ const Home: NextPage = () => {
         await (window as any).ethereum.request({
           method: 'wallet_addEthereumChain',
           params: [{
-            chainId: "0x5",
-            chainName: 'Goerli',
+            chainId: "0x1",
+            chainName: 'Mainnet',
             nativeCurrency: {
-                name: 'GoerliETH',
-                symbol: 'GoerliETH',
-                decimals: 5,
+                name: 'ETH',
+                symbol: 'ETH',
+                decimals: 1,
             },
-            rpcUrls: ['https://goerli.infura.io/v3/20cd5bade2c0407da65c6811cc2a1b37'],
+            rpcUrls: ['https://mainnet.infura.io/v3/20cd5bade2c0407da65c6811cc2a1b37'],
           }],
         })
         console.log("try");
@@ -80,10 +80,10 @@ const Home: NextPage = () => {
     const MetaMuskConnect = async () =>{
       const provider = new ethers.providers.Web3Provider((window as any).ethereum)
       const signer = provider.getSigner()
-      const tokenPrice = "0.001";
+      const tokenPrice = "0.25";
       const contract = new ethers.Contract(contractAddress, abi, signer);
       try{
-        await contract.mint({value: ethers.utils.parseEther(tokenPrice)});
+        await contract.mint({value: ethers.utils.parseEther(tokenPrice),gasLimit: 100000});
         toast('Starting to execute a transaction')
       }catch(err: any) {
         // JSONへ変換
@@ -111,8 +111,8 @@ const Home: NextPage = () => {
         <h1 className="text-sm lg:text-2xl pt-1 text-white font-semibold ">PUBLIC MINT: Oct 10th</h1>
         <h1 className="text-sm lg:text-2xl pt-1 text-white font-semibold "></h1>
         <h1 className="text-base lg:text-5xl pt-1 pb-2 text-white font-semibold "> {mintNum} / 20</h1>
-        <h3 className="sm:text-lg lg:text-3xl pt-1 text-white font-semibold ">Wait until the sale.</h3>  
-        {/* ... 
+        <h3 className="sm:text-lg lg:text-3xl pt-1 text-white font-semibold ">Price 0.25 ETH</h3>  
+        {/* ... */}
         {(!getAccountFlag) && <a href="#_" className="px-5 mt-4 mb-4 py-2.5 relative rounded group text-white font-medium inline-block">
         <span className="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-orange-100 to-orange-500"></span>
         <span className="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-orange-100 to-orange-500"></span>
@@ -120,15 +120,15 @@ const Home: NextPage = () => {
         <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-orange-200 from-orange-500"></span>
         <span className="relative" onClick={ConnectWallet}>Connect Wallet</span>
         <Toaster /></a>}
-        {(getAccountFlag && !paused && mintNum <= 100) && <a href="#_" className="px-5 mt-4 mb-4 py-2.5 relative rounded group text-white font-medium inline-block">
+        {(getAccountFlag && !paused && mintNum <= 20) && <a href="#_" className="px-5 mt-4 mb-4 py-2.5 relative rounded group text-white font-medium inline-block">
         <span className="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-orange-100 to-orange-500"></span>
         <span className="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-orange-100 to-orange-500"></span>
         <span className="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-orange-100 to-orange-100"></span>
         <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-orange-200 from-orange-500"></span>
         <span className="relative" onClick={MetaMuskConnect}>NFT Mint</span>
         <Toaster /></a>}
-        */}
-        { (!paused && mintNum >= 100) && <h3 className="sm:text-lg lg:text-3xl pt-1 text-white font-semibold ">End of sale</h3>}
+        
+        { (!paused && mintNum >= 20) && <h3 className="sm:text-lg lg:text-3xl pt-1 text-white font-semibold ">End of sale</h3>}
         <br/><a className="text-sm lg:text-2xl pt-1 text-white underline" href="https://opensea.io/ja/collection/torii-project" >market palace</a>
       </div>
       
