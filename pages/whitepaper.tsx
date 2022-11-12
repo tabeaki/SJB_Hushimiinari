@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Seo from './components/Seo'
 import Image from 'next/image'
+import Header from './components/Header';
 
 
 const Home: NextPage = () => {
@@ -9,7 +10,8 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <div className="flex justify-center">
+      <div className="flex justify-center flex-col">
+      <Header />
       <Seo
         pageTitle={'SJB_Hushimiinari'}
         pageDescription={'SJB_Hushimiinari'}
